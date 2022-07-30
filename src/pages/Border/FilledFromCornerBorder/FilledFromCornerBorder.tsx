@@ -2,7 +2,7 @@ import React, { ComponentPropsWithRef, useMemo } from 'react';
 import { StyledFilledFromCornerBorder } from './FilledFromCornerBorder.styles';
 import { defaultsDeep } from 'lodash';
 
-type FilledFromCornerBorderStyles = {
+export type FilledFromCornerBorderStyles = {
   /**
    * Distance between the pseudo border elements and the container
    */
@@ -29,7 +29,7 @@ type FilledFromCornerBorderStyles = {
   duration?: number;
 };
 
-export type FilledFromCornerBorderProps = ComponentPropsWithRef<'div'> & {
+type FilledFromCornerBorderProps = ComponentPropsWithRef<'div'> & {
   borderStyles?: FilledFromCornerBorderStyles;
 };
 

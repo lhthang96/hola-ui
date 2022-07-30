@@ -1,40 +1,41 @@
 import styled from 'styled-components';
-import { FilledFromCornerBorderProps } from './FilledFromCornerBorder';
+import { FilledFromCornerBorderStyles } from './FilledFromCornerBorder';
 
 const BORDER_COLOR = '#0170fe';
 
-export const StyledFilledFromCornerBorder = styled.div<FilledFromCornerBorderProps>`
+export const StyledFilledFromCornerBorder = styled.div<{ borderStyles: FilledFromCornerBorderStyles }>`
   position: relative;
   border: 1px solid ${BORDER_COLOR};
+  cursor: pointer;
 
   &::before,
   &::after {
     content: '';
     position: absolute;
-    width: ${(props): number => props.borderStyles.initBorderWidth}px;
-    height: ${(props): number => props.borderStyles.initBorderHeight}px;
-    transition: all ${(props): number => props.borderStyles.duration}s ease-in-out;
+    width: ${(props) => props.borderStyles.initBorderWidth}px;
+    height: ${(props) => props.borderStyles.initBorderHeight}px;
+    transition: all ${(props) => props.borderStyles.duration}s ease-in-out;
   }
 
   &::before {
-    top: -${(props): number => props.borderStyles.distance}px;
-    left: -${(props): number => props.borderStyles.distance}px;
-    border-top: ${(props): number => props.borderStyles.thickness}px solid ${BORDER_COLOR};
-    border-left: ${(props): number => props.borderStyles.thickness}px solid ${BORDER_COLOR};
+    top: -${(props) => props.borderStyles.distance}px;
+    left: -${(props) => props.borderStyles.distance}px;
+    border-top: ${(props) => props.borderStyles.thickness}px solid ${BORDER_COLOR};
+    border-left: ${(props) => props.borderStyles.thickness}px solid ${BORDER_COLOR};
   }
 
   &::after {
-    bottom: -${(props): number => props.borderStyles.distance}px;
-    right: -${(props): number => props.borderStyles.distance}px;
-    border-bottom: ${(props): number => props.borderStyles.thickness}px solid ${BORDER_COLOR};
-    border-right: ${(props): number => props.borderStyles.thickness}px solid ${BORDER_COLOR};
+    bottom: -${(props) => props.borderStyles.distance}px;
+    right: -${(props) => props.borderStyles.distance}px;
+    border-bottom: ${(props) => props.borderStyles.thickness}px solid ${BORDER_COLOR};
+    border-right: ${(props) => props.borderStyles.thickness}px solid ${BORDER_COLOR};
   }
 
   &:hover {
     &::before,
     &::after {
-      width: calc(100% + ${(props): number => props.borderStyles.distance * 2}px);
-      height: calc(100% + ${(props): number => props.borderStyles.distance * 2}px);
+      width: calc(100% + ${(props) => props.borderStyles.distance * 2}px);
+      height: calc(100% + ${(props) => props.borderStyles.distance * 2}px);
     }
   }
 `;
